@@ -7,3 +7,9 @@ export type RegisterForm = {
 
   lastName: string;
 };
+
+export type LoginForm = {
+  email: string;
+
+  password: string;
+};
