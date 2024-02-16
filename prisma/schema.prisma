@@ -1,11 +1,27 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
   provider = "mongodb"
-  url      = env("DATABASE_URL")
+  url      = env("DB_URL")
+}
+
+model islands {
+  id             String   @id @default(auto()) @map("_id") @db.ObjectId
+  v              Int      @map("__v")
+  altitude       Float
+  author         String
+  country        String
+  dateTime       DateTime @db.Date
+  dateTimeString String
+  latitude       Float
+  location       String
+  longitude      Float
+  name           String   @unique(map: "name_1")
+  noViews        Int
+  postalCode     String?
+  region         String
+  road           String?
+  type           String
 }
