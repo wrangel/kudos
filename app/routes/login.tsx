@@ -8,6 +8,7 @@ import {
   validateName,
   validatePassword,
 } from "~/utils/validators.server";
+import { login, register } from "~/utils/auth.server";
 
 /*  pulls the form data out of the request object
     ensures an email and password were provided.
@@ -66,6 +67,23 @@ export const action: ActionFunction = async ({ request }) => {
       },
       { status: 400 }
     );
+
+  switch (action) {
+    case "login": {
+      return await login({ email, password });
+    }
+
+    case "register": {
+      firstName = firstName as string;
+
+      lastName = lastName as string;
+
+      return await register({ email, password, firstName, lastName });
+    }
+
+    default:
+      return json({ error: `Invalid Form Data` }, { status: 400 });
+  }
 };
 
 export default function Login() {
