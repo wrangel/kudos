@@ -544,6 +544,18 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+.absolute {
+  position: absolute;
+}
+
+.right-8 {
+  right: 2rem;
+}
+
+.top-8 {
+  top: 2rem;
+}
+
 .my-2 {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
@@ -551,10 +563,6 @@ video {
 
 .mt-2 {
   margin-top: 0.5rem;
-}
-
-.block {
-  display: block;
 }
 
 .flex {
