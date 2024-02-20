@@ -660,12 +660,21 @@ video {
   line-height: 1;
 }
 
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
 .font-extrabold {
   font-weight: 800;
 }
 
 .font-semibold {
   font-weight: 600;
+}
+
+.tracking-wide {
+  letter-spacing: 0.025em;
 }
 
 .text-blue-600 {
@@ -681,6 +690,11 @@ video {
 .text-yellow-300 {
   --tw-text-opacity: 1;
   color: rgb(253 224 71 / var(--tw-text-opacity));
+}
+
+.text-red-500 {
+  --tw-text-opacity: 1;
+  color: rgb(239 68 68 / var(--tw-text-opacity));
 }
 
 .transition {
