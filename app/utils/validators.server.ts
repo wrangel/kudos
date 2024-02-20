@@ -8,8 +8,8 @@ export const validateEmail = (email: string): string | undefined => {
 };
 
 export const validatePassword = (password: string): string | undefined => {
-  if (password.length < 80) {
-    return "Please enter a password that is at least 80 characters long";
+  if (password.length < 5) {
+    return "Please enter a password that is at least 5 characters long";
   }
 };
 

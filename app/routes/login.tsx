@@ -1,5 +1,10 @@
 import { useState } from "react";
-import { ActionFunction, json } from "@remix-run/node";
+import {
+  ActionFunction,
+  json,
+  LoaderFunction,
+  redirect,
+} from "@remix-run/node";
 
 import { Layout } from "~/components/layout";
 import { FormField } from "~/components/form-field";
@@ -8,7 +13,12 @@ import {
   validateName,
   validatePassword,
 } from "~/utils/validators.server";
-import { login, register } from "~/utils/auth.server";
+import { login, register, getUser } from "~/utils/auth.server";
+
+export const loader: LoaderFunction = async ({ request }) => {
+  // If there's already a user in the session, redirect to the home page
+  return (await getUser(request)) ? redirect("/") : null;
+};
 
 /*  pulls the form data out of the request object
     ensures an email and password were provided.
@@ -119,7 +129,7 @@ export default function Login() {
           {action === "login" ? "Sign Up" : "Sign In"}
         </button>
         <h2 className="text-5xl font-extrabold text-yellow-300">
-          Welcome to Kudos!
+          Welcome to Hans Aff!
         </h2>
 
         <p className="font-semibold text-slate-300">
